@@ -10,19 +10,19 @@
 :root {
   color-scheme: light;
   --bg: #f6f6f4; --surface: #fcfcfb; --border: #e3e2de; --border-strong: #cfcec9;
-  --text: #1b1b1a; --text-2: #52514e; --text-3: #767570; --accent: #2a78d6; --note: #f1f1ee;
+  --text: #1b1b1a; --text-2: #52514e; --text-3: #767570; --accent: #2a78d6; --note: #f1f1ee; --z1: #9ec5f4; --z2: #5598e7; --z3: #1c5cab;
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme='light']) {
     color-scheme: dark;
     --bg: #121211; --surface: #1a1a19; --border: #2c2c2a; --border-strong: #3d3d3a;
-    --text: #f0efec; --text-2: #c3c2b7; --text-3: #93928b; --accent: #5598e7; --note: #222220;
+    --text: #f0efec; --text-2: #c3c2b7; --text-3: #93928b; --accent: #5598e7; --note: #222220; --z1: #6da7ec; --z2: #3987e5; --z3: #1c5cab;
   }
 }
 :root[data-theme='dark'] {
   color-scheme: dark;
   --bg: #121211; --surface: #1a1a19; --border: #2c2c2a; --border-strong: #3d3d3a;
-  --text: #f0efec; --text-2: #c3c2b7; --text-3: #93928b; --accent: #5598e7; --note: #222220;
+  --text: #f0efec; --text-2: #c3c2b7; --text-3: #93928b; --accent: #5598e7; --note: #222220; --z1: #6da7ec; --z2: #3987e5; --z3: #1c5cab;
 }
 * { box-sizing: border-box; }
 body { margin: 0; background: var(--bg); color: var(--text); font: 17px/1.7 ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; -webkit-font-smoothing: antialiased; }
@@ -49,6 +49,21 @@ th, td { text-align: left; padding: 9px 12px 9px 0; border-bottom: 1px solid var
 thead th { font-size: 13px; font-weight: 600; color: var(--text-3); border-bottom-color: var(--border-strong); }
 td { font-variant-numeric: tabular-nums; }
 table + p em, .table-wrap + p em { font-size: 14px; color: var(--text-3); }
+
+.zones { margin: 8px 0 32px; }
+.zones-scale { display: flex; gap: 2px; height: 10px; }
+.zones-scale span { flex: 1; border-radius: 2px; }
+.z1 { background: var(--z1); } .z2 { background: var(--z2); } .z3 { background: var(--z3); }
+.zones-ticks { display: flex; gap: 2px; font-size: 12px; color: var(--text-3); margin: 6px 0 14px; font-variant-numeric: tabular-nums; }
+.zones-ticks span { flex: 1; }
+.zones-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.zone { border: 1px solid var(--border); border-radius: 6px; padding: 14px 16px; }
+.zone p { margin: 0; line-height: 1.45; }
+.zone-title { font-weight: 600; font-size: 15px; display: flex; align-items: center; gap: 8px; }
+.dot { width: 10px; height: 10px; border-radius: 2px; flex: none; }
+.zone-net { font-size: 14px; margin-top: 6px !important; }
+.zone-tip { font-size: 13px; color: var(--text-3); margin-top: 8px !important; }
+.zones figcaption { font-size: 13px; color: var(--text-3); margin-top: 10px; }
 blockquote.img-suggestion { margin: 20px 0 24px; padding: 28px 20px; background: var(--note); border: 1px dashed var(--border-strong); border-radius: 6px; text-align: center; font-size: 14px; color: var(--text-3); }
 blockquote.img-suggestion p { margin: 0; }
 h3 + p { margin-top: 0; }
@@ -58,6 +73,7 @@ h3 + p { margin-top: 0; }
   article { margin: 16px 0 40px; padding: 24px 16px; border-radius: 0; border-left: 0; border-right: 0; }
   h1 { font-size: 27px; }
   h2 { font-size: 21px; }
+  .zones-grid { grid-template-columns: 1fr; }
 }
 </style>
 </head>
@@ -86,9 +102,6 @@ h3 + p { margin-top: 0; }
 <p>Une croisière, c&#39;est souvent la promesse de déconnecter. Dans les faits, on a presque tous besoin d&#39;un minimum de réseau : envoyer des photos à la famille, trouver un restaurant pendant l&#39;escale à Naples, ou simplement vérifier ses mails. Et c&#39;est là que les choses se compliquent, parce qu&#39;un bateau n&#39;est ni un hôtel, ni un pays.</p>
 <p>Pour faire court : une eSIM de voyage fonctionne très bien au port et le long des côtes, mais elle ne capte plus rien en pleine mer. La solution la plus économique pour la plupart des passagers consiste donc à prendre une eSIM pour les escales et à se rabattre sur le Wi-Fi du bord les jours de navigation. Il existe aussi, depuis peu, des eSIM conçues pour les croisières qui fonctionnent au large.</p>
 <p>Ce qu&#39;il faut absolument éviter, en revanche, c&#39;est de laisser votre téléphone se connecter au réseau mobile du navire avec votre forfait français. On vous explique pourquoi, et comment choisir la bonne solution selon votre itinéraire.</p>
-<blockquote class="img-suggestion">
-<p><em>Suggestion d&#39;image principale : passager utilisant son smartphone sur le pont d&#39;un bateau de croisière, mer en arrière-plan. Texte alternatif : « utiliser internet sur son téléphone en croisière »</em></p>
-</blockquote>
 <p><strong>Au sommaire</strong></p>
 <ol>
 <li><a href="#comment-fonctionne-internet-sur-un-bateau">Comment fonctionne internet sur un bateau</a></li>
@@ -105,9 +118,33 @@ h3 + p { margin-top: 0; }
 <p><a id="comment-fonctionne-internet-sur-un-bateau"></a></p>
 <h2>Comment fonctionne internet sur un bateau de croisière</h2>
 <p>Le réseau que capte votre téléphone dépend avant tout de la distance entre le navire et la côte. On peut distinguer trois situations.</p>
-<blockquote class="img-suggestion">
-<p><em>Suggestion d&#39;image : schéma montrant un navire à quai, un navire près de la côte et un navire au large, avec le réseau disponible dans chaque zone. Texte alternatif : « couverture eSIM en croisière : port, côte et pleine mer »</em></p>
-</blockquote>
+<figure class="zones" aria-label="Les trois zones de connexion d'un bateau de croisière">
+  <div class="zones-scale" aria-hidden="true">
+    <span class="z1"></span><span class="z2"></span><span class="z3"></span>
+  </div>
+  <div class="zones-ticks" aria-hidden="true">
+    <span>À quai</span><span>Jusqu'à ~22 km</span><span>Au-delà de 12 milles</span>
+  </div>
+  <div class="zones-grid">
+    <div class="zone">
+      <p class="zone-title"><span class="dot z1"></span>Au port</p>
+      <p class="zone-net">Réseau mobile local</p>
+      <p class="zone-tip">eSIM de voyage, ou forfait français pour une escale dans l'UE</p>
+    </div>
+    <div class="zone">
+      <p class="zone-title"><span class="dot z2"></span>Le long des côtes</p>
+      <p class="zone-net">Réseau local, ou réseau du bateau s'il capte mieux</p>
+      <p class="zone-tip">Coupez l'itinérance des données sur votre ligne principale</p>
+    </div>
+    <div class="zone">
+      <p class="zone-title"><span class="dot z3"></span>En pleine mer</p>
+      <p class="zone-net">Satellite uniquement</p>
+      <p class="zone-tip">Wi-Fi du bord ou eSIM pour croisière</p>
+    </div>
+  </div>
+  <figcaption>Le réseau disponible selon la distance entre le navire et la côte.</figcaption>
+</figure>
+
 <h3>Au port et pendant les escales</h3>
 <p>Quand le bateau est à quai, votre téléphone se comporte exactement comme lors d&#39;un voyage classique : il se connecte aux antennes des opérateurs locaux. C&#39;est le moment où une eSIM de voyage rend le plus service, puisque vous payez un forfait local, souvent quelques euros pour plusieurs gigas.</p>
 <h3>Le long des côtes</h3>

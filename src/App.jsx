@@ -31,7 +31,8 @@ export default function App() {
           <h1>Catalogue eSIM</h1>
         </div>
         <p className="meta">
-          {fmtInt(quality.files.length)} fichiers fournisseurs · mis à jour le {fmtDate(stats.generatedAt)}
+          {fmtInt(quality.files.length)} fichiers fournisseurs · mis à jour le {fmtDate(stats.generatedAt)} ·{' '}
+          <a href="/article">Article SEO</a>
         </p>
       </header>
 

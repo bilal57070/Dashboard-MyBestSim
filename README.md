@@ -40,3 +40,9 @@ Pour mettre à jour le dashboard, il suffit de remplacer les CSV dans `data/` et
 npm install
 npm run dev
 ```
+
+## Article SEO
+
+La page `/article` (fichier `public/article.html`) présente l'article de la partie 2,
+« Internet en croisière : quelle eSIM choisir ? ». Elle est exclue de l'indexation Google
+(`noindex`) pour éviter tout contenu dupliqué si l'article est publié sur mybestsim.com.
